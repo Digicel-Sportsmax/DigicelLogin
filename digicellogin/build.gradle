@@ -1,0 +1,279 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+
+        consumerProguardFiles 'proguard-rules.pro'
+
+//        compileOptions.encoding = 'ISO-8859-1'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
+    }
+}
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    maven {
+        credentials {
+            username 'applicasterapps'
+            password '078882fe17e5198e329a9b3a3d0d7714e68aa2b0'
+
+        }
+        url 'https://dl.bintray.com/applicaster-ltd/maven'
+    }
+    maven {
+        url "https://dl.bintray.com/applicaster-ltd/maven_plugins/"
+
+    }
+    jcenter {
+        url = 'https://dl.bintray.com/swrve-inc/android'
+    }
+}
+
+dependencies {
+    // Applicaster SDK
+    def applicasterSDKPath = 'com.applicaster:applicaster-android-sdk:5.0.1'
+    // Check if an open SDK is defined - if not use the closed one.
+    def devSDK = findProject(':applicaster-android-sdk')
+    if (devSDK != null) {
+        implementation project(':applicaster-android-sdk')
+    } else {
+        api(applicasterSDKPath)
+    }
+
+    compileOnly('com.applicaster:cleengdigicel:1.0.+') {
+        exclude group:    'com.android.billingclient', module: 'billing'
+    }
+//    def cleengPluginPath = 'com.applicaster:CleengLoginPlugin-Android:1.9.+'
+//    def cleengPlugin = findProject(':cleeng')
+//    if (cleengPlugin != null) {
+//        implementation project(':cleeng')
+//    } else {
+//        implementation(cleengPluginPath)
+//    }
+//
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api 'com.scottyab:secure-preferences-lib:0.1.4'
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation "com.google.android.material:material:1.1.0-alpha09"
+
+
+    implementation 'com.swrve.sdk.android:swrve-firebase:7.0.0'
+}
+
+//---------------------------------- Bintray ----------------------------------//
+
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+
+buildscript {
+    ext.kotlin_version = '1.3.50'
+    repositories {
+        jcenter()
+        google()
+        mavenCentral()
+        jcenter {
+            url = 'https://dl.bintray.com/swrve-inc/android'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.github.dcendents:android-maven-plugin:1.2'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+//        classpath 'com.android.tools.build:gradle:3.5.3'
+//        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+//        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+//        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+    }
+}
+
+/*
+ * Gets the version name from the latest Git tag
+ */
+def getVersionName = { ->
+    try {
+        def stdout = new ByteArrayOutputStream()
+        exec {
+            commandLine 'git', 'describe', '--abbrev=0', '--tags'
+            standardOutput = stdout
+        }
+        return stdout.toString().trim()
+    }
+    catch (ignored) {
+        return null;
+    }
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                groupId GROUP
+
+                def versionFromTag = getVersionName()
+                if (versionFromTag != null) {
+                    // There is a tag existing on the current commit - we can upload to Bintray
+                    version versionFromTag
+
+                    artifactId ARTIFACT_ID
+                    artifact "build/outputs/aar/" + ARTIFACT_FILE_NAME + "-release.aar"
+                    artifact androidJavadocsJar
+                    artifact androidSourcesJar
+                    pom.withXml {
+                        Node root = asNode()
+                        root.appendNode('name', ARTIFACT_ID)
+                        root.appendNode('description', POM_DESCRIPTION)
+                        root.appendNode('url', POM_URL)
+
+                        def issues = root.appendNode('issueManagement')
+                        issues.appendNode('system', 'github')
+                        issues.appendNode('url', ISSUE_URL)
+
+                        def scm = root.appendNode('scm')
+                        scm.appendNode('url', POM_SCM_URL)
+                        scm.appendNode('connection', POM_SCM_CONNECTION)
+                        scm.appendNode('developerConnection', POM_SCM_DEV_CONNECTION)
+
+                        def license = root.appendNode('licenses').appendNode('license')
+                        license.appendNode('name', POM_LICENCE_NAME)
+                        license.appendNode('url', POM_LICENCE_URL)
+                        license.appendNode('distribution', POM_LICENCE_DIST)
+
+                        def developer = root.appendNode('developers').appendNode('developer')
+                        developer.appendNode('id', POM_DEVELOPER_ID)
+                        developer.appendNode('name', POM_DEVELOPER_NAME)
+                        developer.appendNode('email', POM_DEVELOPER_EMAIL)
+
+                        def dependenciesNode = asNode().appendNode('dependencies')
+                        configurations.implementation.allDependencies.each {
+                            if (!it.name.is('unspecified')) {
+                                def dependencyNode = dependenciesNode.appendNode('dependency')
+                                dependencyNode.appendNode('groupId', it.group)
+                                dependencyNode.appendNode('artifactId', it.name)
+                                dependencyNode.appendNode('version', it.version)
+                            }
+                        }
+                        configurations.api.allDependencies.each {
+                            if (!it.name.is('unspecified')) {
+                                def dependencyNode = dependenciesNode.appendNode('dependency')
+                                dependencyNode.appendNode('groupId', it.group)
+                                dependencyNode.appendNode('artifactId', it.name)
+                                dependencyNode.appendNode('version', it.version)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+def getBintrayUserProperty() {
+    return System.getenv("BINTRAY_USER")
+}
+
+def getBintrayApiKeyProperty() {
+    return System.getenv("BINTRAY_API_KEY")
+}
+
+bintray {
+    user = bintrayUserProperty
+    key = bintrayApiKeyProperty
+    publications = ['mavenJava']
+    override = true
+    dryRun = false
+    publish = true
+    pkg {
+        repo = 'maven'
+        name = ARTIFACT_ID
+        userOrg = 'applicaster-ltd'
+        websiteUrl = POM_URL
+        issueTrackerUrl = ISSUE_URL
+        vcsUrl = POM_SCM_URL
+        licenses = ['Apache-2.0']
+        labels = ['aar', 'android']
+        version {
+            name = getVersionName()
+            vcsTag = 'v' + getVersionName()
+        }
+    }
+}
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    excludes = ['**/*.kt']
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    failOnError false
+}
+
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    classifier = 'javadoc'
+    excludes = ['**/*.kt']
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.sourceFiles
+}
+
+task androidJar(type: Jar) {
+    from 'build/intermediates/classes/release'
+}
+
+artifacts {
+    archives androidSourcesJar
+    archives androidJavadocsJar
+    archives androidJar
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}

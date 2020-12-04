@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/digi_blue">
+
+    <RelativeLayout
+        android:id="@+id/alertContainer"
+        android:layout_width="427dp"
+        android:layout_height="355dp"
+        android:layout_centerInParent="true"
+      >
+
+        <com.applicaster.util.ui.CustomTextView
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notice"
+            android:gravity="center"
+            android:textSize="24dp"
+            android:layout_marginTop="76dp" />
+
+        <com.applicaster.util.ui.CustomTextView
+            android:id="@+id/subtitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleTextView"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_marginTop="39dp" />
+
+        <com.applicaster.util.ui.CustomButton
+            android:id="@+id/closeButton"
+            android:background="@drawable/rect_shape"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="OK"
+            android:layout_margin="12dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

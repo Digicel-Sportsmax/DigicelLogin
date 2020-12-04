@@ -1,0 +1,2 @@
+include ':digicellogin'
+rootProject.name = "DigicelLogin"

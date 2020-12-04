@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cleeng_login_subscribe_button">#fff48025</color>
+    <color name="cleeng_login_bottom_background_color">#ffffffff</color>
+    <color name="ap_webview_background_color">#ffffffff</color>
+
+    <color name="subscription_button_title_default">#ffffffff</color>
+    <color name="subscription_button_title_focused">#ffffffff</color>
+    <color name="subscription_button_title_pressed">#ffefefef</color>
+    <color name="subscription_button_price_default">#ffffffff</color>
+    <color name="subscription_button_price_focused">#ffffffff</color>
+    <color name="subscription_button_price_pressed">#ffffffff</color>
+    <color name="subscription_button_description_default">#ffffffff</color>
+    <color name="subscription_button_description_focused">#ffffffff</color>
+    <color name="subscription_button_description_pressed">#ffffffff</color>
+    <color name="digi_blue">#2B60A1</color>
+
+</resources>
