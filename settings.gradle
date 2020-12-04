@@ -1,2 +1,2 @@
-include ':digicellogin'
+include ':digicellogincme'
 rootProject.name = "DigicelLogin"

@@ -10,7 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/digicellogin" />
+            <option value="$PROJECT_DIR$/digicellogincme" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
