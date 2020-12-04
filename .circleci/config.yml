@@ -47,11 +47,11 @@ jobs:
 
       - run:
           name: Build release package
-          command: ./gradlew assembleRelease
+          command: ./gradlew assembleRelease --stacktrace
 
       - run:
           name: Deploy to Bintray
-          command: ./gradlew bintrayUpload
+          command: ./gradlew bintrayUpload --stacktrace
 
 workflows:
   version: 2
