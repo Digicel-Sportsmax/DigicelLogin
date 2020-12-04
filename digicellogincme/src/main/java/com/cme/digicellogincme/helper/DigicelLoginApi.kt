@@ -11,8 +11,6 @@ import com.cme.digicellogincme.remote.Params
 import com.cme.digicellogincme.remote.WebService
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
-import com.swrve.sdk.SwrveIdentityResponse
-import com.swrve.sdk.SwrveSDK
 import org.json.JSONArray
 
 object DigicelLoginApi {
@@ -32,7 +30,7 @@ object DigicelLoginApi {
             this.currentDigicelUser = digicelUser
             DigicelCredentialsManager.saveDigicelUser(digicelUser)
 
-            SwrveSDK.identify(digicelUser.userGuid, object : SwrveIdentityResponse {
+            /*SwrveSDK.identify(digicelUser.userGuid, object : SwrveIdentityResponse {
                 override fun onSuccess(status: String, swrveId: String) {
                     Log.wtf("Swrve onSuccess ", swrveId)
 
@@ -41,7 +39,7 @@ object DigicelLoginApi {
                 override fun onError(responseCode: Int, errorMessage: String) {
                     Log.wtf("Swrve onError ", errorMessage)
                 }
-            })
+            })*/
 
             callback(WebService.Status.Success, digicelUser)
         }

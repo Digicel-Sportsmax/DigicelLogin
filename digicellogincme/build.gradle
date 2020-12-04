@@ -65,9 +65,9 @@ repositories {
         url "https://dl.bintray.com/applicaster-ltd/maven_plugins/"
 
     }
-    jcenter {
+    /*jcenter {
         url = 'https://dl.bintray.com/swrve-inc/android'
-    }
+    }*/
 }
 
 dependencies {
@@ -99,7 +99,7 @@ dependencies {
     implementation "com.google.android.material:material:1.1.0-alpha09"
 
 
-    implementation 'com.swrve.sdk.android:swrve-firebase:7.0.0'
+    //implementation 'com.swrve.sdk.android:swrve-firebase:7.0.0'
 }
 
 //---------------------------------- Bintray ----------------------------------//
