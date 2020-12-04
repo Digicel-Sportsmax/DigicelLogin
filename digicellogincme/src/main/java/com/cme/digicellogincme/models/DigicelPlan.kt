@@ -1,4 +1,4 @@
-package com.cme.digicellogin.models
+package com.cme.digicellogincme.models
 
 data class DigicelPlan(val name: String,
                        val dateEnd: Long,

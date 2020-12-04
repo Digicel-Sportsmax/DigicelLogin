@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cme.digicellogin">
+    package="com.cme.digicellogincme">
 
     <application
         android:allowBackup="false">
-        <activity android:name=".views.LoginActivity"/>
-        <activity android:name=".views.WelcomeActivity"/>
+        <activity android:name="com.cme.digicellogincme.views.LoginActivity"/>
+        <activity android:name="com.cme.digicellogincme.views.WelcomeActivity"/>
     </application>
 
 </manifest>

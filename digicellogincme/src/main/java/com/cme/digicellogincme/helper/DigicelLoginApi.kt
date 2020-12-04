@@ -1,14 +1,14 @@
-package com.cme.digicellogin.helper
+package com.cme.digicellogincme.helper
 
 import android.content.Context
 import android.util.Log
 import com.applicaster.util.StringUtil
-import com.cme.digicellogin.models.DigicelPlan
-import com.cme.digicellogin.models.DigicelToken
-import com.cme.digicellogin.models.DigicelUser
-import com.cme.digicellogin.models.SubscriberType
-import com.cme.digicellogin.remote.Params
-import com.cme.digicellogin.remote.WebService
+import com.cme.digicellogincme.models.DigicelPlan
+import com.cme.digicellogincme.models.DigicelToken
+import com.cme.digicellogincme.models.DigicelUser
+import com.cme.digicellogincme.models.SubscriberType
+import com.cme.digicellogincme.remote.Params
+import com.cme.digicellogincme.remote.WebService
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.swrve.sdk.SwrveIdentityResponse

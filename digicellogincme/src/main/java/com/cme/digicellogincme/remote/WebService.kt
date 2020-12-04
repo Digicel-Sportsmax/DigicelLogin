@@ -1,4 +1,4 @@
-package com.cme.digicellogin.remote
+package com.cme.digicellogincme.remote
 
 import android.content.Context
 import com.android.volley.AuthFailureError
@@ -6,8 +6,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.applicaster.util.StringUtil
-import com.cme.digicellogin.helper.DIGICEL_BASE_URL
-import com.cme.digicellogin.helper.PluginConfigurationHelper
+import com.cme.digicellogincme.helper.DIGICEL_BASE_URL
+import com.cme.digicellogincme.helper.PluginConfigurationHelper
 import java.util.*
 
 typealias Params = HashMap<String, String>

@@ -1,4 +1,4 @@
-package com.cme.digicellogin.helper
+package com.cme.digicellogincme.helper
 
 object PluginConfigurationHelper {
 

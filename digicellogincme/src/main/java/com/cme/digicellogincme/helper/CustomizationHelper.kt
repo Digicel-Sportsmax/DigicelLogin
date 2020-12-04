@@ -1,4 +1,4 @@
-package com.cme.digicellogin.helper
+package com.cme.digicellogincme.helper
 
 import android.app.Activity
 import android.content.Context
@@ -15,10 +15,8 @@ import com.applicaster.util.StringUtil
 import com.applicaster.util.TextUtil
 import com.applicaster.util.ui.CustomButton
 import com.applicaster.util.ui.CustomEditText
-import java.util.HashMap
 import android.util.Log
 import android.util.TypedValue
-import java.util.logging.Logger
 
 
 class CustomizationHelper {

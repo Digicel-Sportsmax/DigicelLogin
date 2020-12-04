@@ -1,18 +1,16 @@
-package com.cme.digicellogin.views
+package com.cme.digicellogincme.views
 import android.app.Activity
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import androidx.appcompat.app.AlertDialog
 import com.applicaster.activities.base.APBaseActivity
 import com.applicaster.plugin_manager.login.LoginManager
 import com.applicaster.plugin_manager.playersmanager.Playable
 import com.applicaster.util.OSUtil
-import com.cme.digicellogin.R
-import com.cme.digicellogin.helper.*
-import com.cme.digicellogin.remote.WebService
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.cme.digicellogincme.R
+import com.cme.digicellogincme.helper.*
+import com.cme.digicellogincme.remote.WebService
 
 import org.json.JSONObject
 import java.util.*

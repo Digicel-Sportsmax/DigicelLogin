@@ -1,4 +1,4 @@
-package com.cme.digicellogin.helper
+package com.cme.digicellogincme.helper
 
 import com.applicaster.analytics.AnalyticsAgentUtil
 import com.applicaster.util.StringUtil

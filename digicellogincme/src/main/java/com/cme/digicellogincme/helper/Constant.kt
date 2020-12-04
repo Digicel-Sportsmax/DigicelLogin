@@ -1,4 +1,4 @@
-package com.cme.digicellogin.helper
+package com.cme.digicellogincme.helper
 
 const val LOGIN_PUBLISHER_ID = "cleeng_login_publisher_id"
 

@@ -1,4 +1,4 @@
-package com.cme.digicellogin
+package com.cme.digicellogincme
 
 import android.app.Activity
 import android.content.BroadcastReceiver
@@ -19,14 +19,14 @@ import com.applicaster.plugin_manager.login.LoginContract
 import com.applicaster.plugin_manager.login.LoginManager
 import com.applicaster.plugin_manager.playersmanager.Playable
 import com.applicaster.util.StringUtil
-import com.cme.digicellogin.helper.*
-import com.cme.digicellogin.models.DigicelPlan
-import com.cme.digicellogin.models.SubscriberType
-import com.cme.digicellogin.models.UserType
-import com.cme.digicellogin.remote.WebService
-import com.cme.digicellogin.views.CustomDialog
-import com.cme.digicellogin.views.LoginActivity
-import com.cme.digicellogin.views.WelcomeActivity
+import com.cme.digicellogincme.helper.*
+import com.cme.digicellogincme.models.DigicelPlan
+import com.cme.digicellogincme.models.SubscriberType
+import com.cme.digicellogincme.models.UserType
+import com.cme.digicellogincme.remote.WebService
+import com.cme.digicellogincme.views.CustomDialog
+import com.cme.digicellogincme.views.LoginActivity
+import com.cme.digicellogincme.views.WelcomeActivity
 
 
 class DigicelLoginPlugin : AsyncLoginContract() {

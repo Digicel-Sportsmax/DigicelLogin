@@ -1,4 +1,4 @@
-package com.cme.digicellogin.helper
+package com.cme.digicellogincme.helper
 
 import android.graphics.Color
 import android.graphics.Typeface
@@ -6,7 +6,6 @@ import android.util.Log
 import android.util.TypedValue
 import android.widget.TextView
 import com.applicaster.app.CustomApplication
-import com.applicaster.util.OSUtil
 import com.applicaster.util.StringUtil
 
 class UiHelper {

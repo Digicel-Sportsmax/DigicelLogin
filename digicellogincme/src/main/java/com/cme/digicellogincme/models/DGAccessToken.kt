@@ -1,4 +1,4 @@
-package com.cme.digicellogin.models
+package com.cme.digicellogincme.models
 
 data class DGAccessToken(val expires_in: String,
                          val token_type: String,

@@ -1,4 +1,4 @@
-package com.cme.digicellogin.models
+package com.cme.digicellogincme.models
 
 enum class WebAuth {
     CREATE_ACCOUNT, LOGIN

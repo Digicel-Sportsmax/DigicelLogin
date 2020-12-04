@@ -1,9 +1,9 @@
-package com.cme.digicellogin.helper
+package com.cme.digicellogincme.helper
 
 import com.applicaster.util.PreferenceUtil
 import com.applicaster.util.StringUtil
 import com.applicaster.util.serialization.SerializationUtils
-import com.cme.digicellogin.models.DigicelUser
+import com.cme.digicellogincme.models.DigicelUser
 import com.google.gson.Gson
 
 

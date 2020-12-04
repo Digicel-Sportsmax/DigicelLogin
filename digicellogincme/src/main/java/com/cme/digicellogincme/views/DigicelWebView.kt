@@ -1,4 +1,4 @@
-package com.cme.digicellogin.views
+package com.cme.digicellogincme.views
 
 import android.app.Activity
 import android.content.Context
@@ -12,9 +12,9 @@ import com.applicaster.analytics.AnalyticsUtils
 import com.applicaster.util.OSUtil
 import com.applicaster.util.StringUtil
 import com.applicaster.util.ui.APWebView
-import com.cme.digicellogin.helper.AUTH_TOKEN_KEY
-import com.cme.digicellogin.models.DigicelWebResponse
-import com.cme.digicellogin.models.WebAuth
+import com.cme.digicellogincme.helper.AUTH_TOKEN_KEY
+import com.cme.digicellogincme.models.DigicelWebResponse
+import com.cme.digicellogincme.models.WebAuth
 import rx.Observable
 import rx.Observer
 

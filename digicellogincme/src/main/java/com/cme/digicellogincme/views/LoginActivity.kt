@@ -1,4 +1,4 @@
-package com.cme.digicellogin.views
+package com.cme.digicellogincme.views
 
 
 import android.app.Activity
@@ -7,10 +7,10 @@ import android.os.Bundle
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.applicaster.plugin_manager.login.LoginManager
 import com.applicaster.util.OSUtil
-import com.cme.digicellogin.R
-import com.cme.digicellogin.helper.*
-import com.cme.digicellogin.models.DigicelWebResponse
-import com.cme.digicellogin.models.WebAuth
+import com.cme.digicellogincme.R
+import com.cme.digicellogincme.helper.*
+import com.cme.digicellogincme.models.DigicelWebResponse
+import com.cme.digicellogincme.models.WebAuth
 import kotlinx.android.synthetic.main.login_active.*
 import kotlinx.android.synthetic.main.login_active.toolbar_back_button
 import rx.Observer

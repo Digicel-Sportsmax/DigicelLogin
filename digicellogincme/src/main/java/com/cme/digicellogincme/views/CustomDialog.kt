@@ -1,11 +1,11 @@
-package com.cme.digicellogin.views
+package com.cme.digicellogincme.views
 
 import android.app.Activity
 import android.app.Dialog
 import android.os.Bundle
 import android.view.Window
 import com.applicaster.util.StringUtil
-import com.cme.digicellogin.R
+import com.cme.digicellogincme.R
 import kotlinx.android.synthetic.main.customdialogdigicel.*
 
 /**
