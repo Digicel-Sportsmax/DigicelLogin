@@ -15,14 +15,14 @@
   "platform": "android",
   "author_name": "Hussein Yassine",
   "author_email": "hussein.yassine@gotocme.com",
-  "manifest_version": "1.1.1",
+  "manifest_version": "1.1.2",
   "name": "DigicelLoginCME",
   "description": "DigicelLoginCME",
   "type": "login",
   "identifier": "DigicelLoginCME",
   "ui_builder_support": true,
   "dependency_name": "com.cme:DigicelLoginCME",
-  "dependency_version": "1.1.1",
+  "dependency_version": "1.1.2",
   "whitelisted_account_ids": [
     "5af949534da8f300080050f9"
   ],
